@@ -1,9 +1,8 @@
-import './App.css';
-
+import Header from './components/Header'
 function App() {
   return (
-    <div className="App">
-      <h1>Hello hello!</h1>
+    <div className='container'>
+      <Header title='Tits in the timeline' />
     </div>
   );
 }
