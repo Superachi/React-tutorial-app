@@ -3,7 +3,7 @@ import Header from './components/Header'
 import Tasks from './components/Tasks'
 
 function App() {
-  const [tasks] = useState([
+  const [tasks, setTasks] = useState([
     {
       id: 1,
       text: 'Doctor\'s Appointment',
@@ -24,10 +24,18 @@ function App() {
     }
   ])
 
+  // Delete task
+  const deleteTask = (id) => {
+    console.log('clicked delete button.');
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
+
   return (
     <div className='container'>
       <Header title='Tits in the timeline' />
-      <Tasks tasks={tasks}/>
+      {tasks.length > 0 ?
+        <Tasks tasks={tasks} onDelete={deleteTask}/> : 'No tasks to show.'
+      }
     </div>
   );
 }
